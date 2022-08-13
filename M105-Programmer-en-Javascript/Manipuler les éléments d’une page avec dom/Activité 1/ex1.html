@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Document</title>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../../../bootstrap.min.css" />
+    </head>
+    <body
+        style="min-height: 100vh"
+        class="d-flex align-items-center justify-content-center bg-primary"
+    >
+        <div class="p-4 bg-white border rounded">
+            <div class="d-flex align-items-center">
+                <form class="d-flex align-items-center p-0 m-0 me-2">
+                    <div class="input-group">
+                        <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Post..."
+                            aria-label="Recipient's username"
+                            aria-describedby="button-addon2"
+                        />
+                        <button
+                            class="btn btn-primary"
+                            type="submit"
+                            id="button-addon2"
+                        >
+                            Ajouter
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <ul class="posts list-unstyled pt-4"></ul>
+        </div>
+
+        <script src="../../../bootstrap.bundle.min.js"></script>
+        <script>
+            /**
+             *
+             *
+             *
+             *
+             */
+            const form = document.querySelector("form");
+            const post_input = form.querySelector("input");
+            const comment_inputs = document.querySelectorAll("input");
+            const posts = document.querySelector(".posts");
+
+            console.log({
+                posts: posts,
+            });
+
+            const create_coment = (post, comment) => {
+                const comments = post.querySelector("comments");
+                comments.innerHTML += `<div class="mt-2 bg-danger p-2 text-primary bg-white rounded">
+                    ${comment}
+                </div>`;
+            };
+
+            const create_post = (post_title) => {
+                const post = document.createElement("li");
+                post.setAttribute(
+                    "class",
+                    "bg-primary p-3 text-white rounded-1 mt-1"
+                );
+
+                post.innerHTML += `
+                        <div>${post_title}</div>
+                        <div class="pt-1">
+                            <p style="font-size: 14px">Comments :</p>
+                        </div>
+                        <div class="comments">
+                        </div>
+                        <form>
+                          <input
+                              type="text"
+                              class="form-control mt-2"
+                              placeholder="Your comment here..."
+                          />  
+                        </form>  
+                `;
+
+                const form = post.querySelector("form");
+                const input = form.querySelector("input");
+                form.onsubmit = (event) => {
+                    event.preventDefault();
+
+                    event.target.parentElement.querySelector(
+                        ".comments"
+                    ).innerHTML += `
+
+                          <div
+                              class="mt-2 bg-danger p-2 text-primary bg-white rounded"
+                          >
+                              ${input.value}
+                          </div>
+
+                        `;
+                };
+
+                posts.appendChild(post);
+            };
+
+            form.onsubmit = (event) => {
+                event.preventDefault();
+                create_post(post_input.value);
+            };
+        </script>
+    </body>
+</html>

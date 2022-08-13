@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Document</title>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../../../bootstrap.min.css" />
+    </head>
+    <body
+        style="min-height: 100vh"
+        class="d-flex align-items-center justify-content-center bg-primary"
+    >
+        <div class="p-4 bg-white border rounded">
+            <div class="d-flex align-items-center">
+                <form class="d-flex align-items-center p-0 m-0 me-2">
+                    <div class="input-group">
+                        <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Ville..."
+                            aria-label="Recipient's username"
+                            aria-describedby="button-addon2"
+                        />
+                        <button
+                            class="btn btn-primary"
+                            type="submit"
+                            id="button-addon2"
+                        >
+                            Ajouter
+                        </button>
+                    </div>
+                </form>
+                <button class="btn btn-danger">Supprimer</button>
+            </div>
+            <ul class="cities list-unstyled pt-4"></ul>
+        </div>
+
+        <script src="../../../bootstrap.bundle.min.js"></script>
+        <script>
+            /**
+             *
+             *
+             *
+             *
+             */
+
+            const form = document.querySelector("form");
+            const form_input = form.querySelector("input");
+            const delete_button = document.querySelectorAll("button")[1];
+            const cities = document.querySelector(".cities");
+            let delete_list = [];
+
+            const createcity = function (text) {
+                const li = document.createElement("li");
+                li.setAttribute(
+                    "class",
+                    "bg-primary text-white p-2 rounded-1 mt-1"
+                );
+                li.textContent = text;
+                li.onclick = (e) => {
+                    e.target.classList.add("bg-success");
+
+                    delete_list.push(e.target);
+                    console.log(delete_list);
+                };
+                cities.appendChild(li);
+            };
+
+            form.onsubmit = (event) => {
+                console.log(1);
+                event.preventDefault();
+                createcity(form_input.value);
+            };
+
+            /**____________________*/
+            delete_button.onclick = () => {
+                console.log(delete_list);
+
+                delete_list.forEach((e) => {
+                    e.remove();
+                });
+            };
+            /**____________________*/
+        </script>
+    </body>
+</html>

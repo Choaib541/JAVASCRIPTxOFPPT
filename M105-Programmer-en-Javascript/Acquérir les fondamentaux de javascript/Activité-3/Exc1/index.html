@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Document</title>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../../../../bootstrap.min.css" />
+    </head>
+    <body style="min-height: 100vh">
+        <div
+            class="bg-success d-flex align-items-center justify-content-center flex-column"
+            style="min-height: calc(100vh - 60px)"
+        >
+            <!---------------------->
+
+            <form
+                action=""
+                class="circle bg-light p-2 rounded d-flex align-items-center"
+            >
+                <div class="form-floating">
+                    <input
+                        id="Rayon"
+                        class="form-control"
+                        type="number"
+                        placeholder="Rayon"
+                    />
+                    <label for="Rayon">Rayon</label>
+                </div>
+                <button
+                    class="btn btn-success mx-2"
+                    style="height: 60px; min-width: 60px"
+                >
+                    AR
+                </button>
+                <div class="form-floating">
+                    <input
+                        id="Result"
+                        class="form-control"
+                        type="number"
+                        placeholder="Rayon"
+                        id="Result"
+                        disabled
+                    />
+                    <label for="Result">Result</label>
+                </div>
+            </form>
+
+            <form
+                action=""
+                class="mt-2 mult circle bg-light p-2 rounded d-flex align-items-center"
+            >
+                <div class="form-floating">
+                    <input
+                        id="X"
+                        class="form-control"
+                        type="number"
+                        placeholder="X"
+                    />
+                    <label for="X">X</label>
+                </div>
+                <button
+                    class="btn btn-success mx-2"
+                    style="height: 60px; min-width: 60px"
+                >
+                    AR
+                </button>
+            </form>
+
+            <form
+                action=""
+                class="mt-2 ex3 bg-light p-2 rounded d-flex align-items-center"
+            >
+                <button
+                    class="btn btn-success mx-2"
+                    style="height: 60px; min-width: 60px"
+                >
+                    AR
+                </button>
+            </form>
+
+            <form
+                style="width: 350px"
+                class="mt-2 ex4 circle bg-light p-2 rounded row m-0"
+            >
+                <div
+                    class="col-6 border-end border-success"
+                    style="--bs-border-opacity: 1"
+                >
+                    <button type="button" class="btn btn-success">
+                        marquer ma présence
+                    </button>
+                </div>
+                <div
+                    class="col-6 time"
+                    style="height: 300px; overflow-y: scroll"
+                >
+                    <div>00:00:00</div>
+                </div>
+            </form>
+
+            <form
+                action=""
+                class="mt-2 rec circle bg-light p-2 rounded d-flex align-items-center"
+            >
+                <div class="form-floating">
+                    <input
+                        id="Length"
+                        class="form-control"
+                        type="number"
+                        placeholder="Length"
+                    />
+                    <label for="Length">Length</label>
+                </div>
+                <button
+                    class="btn btn-success mx-2"
+                    style="height: 60px; min-width: 60px"
+                    disabled
+                >
+                    X
+                </button>
+                <div class="form-floating">
+                    <input
+                        id="Width"
+                        class="form-control"
+                        type="number"
+                        placeholder="Width"
+                        id="Width"
+                    />
+                    <label for="Width">Width</label>
+                </div>
+                <button
+                    class="btn btn-success mx-2"
+                    style="height: 60px; min-width: 60px"
+                >
+                    =
+                </button>
+                <div class="form-floating">
+                    <input
+                        id="Resultç1"
+                        class="form-control"
+                        type="number"
+                        placeholder="Result"
+                        id="Result"
+                        disabled
+                    />
+                    <label for="Resultç1">Result</label>
+                </div>
+            </form>
+
+            <form
+                action=""
+                class="mt-2 note bg-light p-2 rounded d-flex align-items-center"
+            >
+                <div class="form-floating">
+                    <input
+                        id="NOTE"
+                        class="form-control"
+                        type="number"
+                        placeholder="NOTE"
+                    />
+                    <label for="NOTE">NOTE</label>
+                </div>
+                <button
+                    class="btn btn-success mx-2"
+                    style="height: 60px; min-width: 60px"
+                >
+                    TEST
+                </button>
+            </form>
+
+            <!---------------------->
+        </div>
+
+        <footer
+            style="height: 60px"
+            class="bg-light d-flex align-items-center justify-content-center"
+        >
+            <span class="text-success fw-bold h4 m-0"
+                >MADE BY CHOAIB MOUHRACH</span
+            >
+        </footer>
+
+        <script src="../../../../bootstrap.bundle.min.js"></script>
+
+        <script>
+            /*-----------------------------*/
+            /* EX1 */
+            const form = document.querySelector("form");
+            const inputs = form.querySelectorAll("input");
+
+            function dummy_func(inputs) {
+                return parseFloat(inputs[0].value) ** 2 * 3.14;
+            }
+
+            form.onsubmit = (e) => {
+                e.preventDefault();
+
+                inputs[1].value = dummy_func(inputs);
+            };
+
+            /* Ex2 */
+
+            [a, b] = [3, 2];
+
+            const multiplie = (x = 8) => {
+                return x * 3;
+            };
+
+            const afficher = (result, res2) => {
+                alert(result);
+                alert(res2);
+            };
+
+            const mult_form = document.querySelector(".mult");
+            const mult_inputs = mult_form.querySelectorAll("input");
+
+            mult_form.onsubmit = (e) =>
+                afficher(
+                    multiplie(parseFloat(mult_inputs[0].value)),
+                    multiplie(2)
+                );
+
+            /* Exc3 */
+
+            // 1. fonction1 prend un paramètre x et renvoie x+5 ;
+            // 2. fonction2 prend deux paramètres x et y et renvoie x+y ;
+            // 3. fonction0 ne prend aucun paramètre, demande la saisie par l'utilisateur d'un nombre et renvoie l'addition de 2 à ce nombre.
+
+            function plus5(x) {
+                return x + 5;
+            }
+
+            function plusxy(x, y) {
+                return x + y;
+            }
+
+            function plus2(x = prompt("a number please")) {
+                return parseFloat(x) + 2;
+            }
+
+            console.log(plus5(5));
+            console.log(plusxy(5, 6));
+            console.log(plus2(5));
+
+            const ex3_form = document.querySelector(".ex3");
+
+            ex3_form.onsubmit = (e) => {
+                e.preventDefault();
+                console.log(plus2());
+            };
+            /* Exc4 */
+
+            const time = document.querySelector(".time");
+            const absence = document.querySelector(".ex4 > div");
+            let date = new Date();
+            let counter = 0;
+            let is_absent = true;
+
+            absence.querySelector("button").onclick = () => {
+                is_absent = false;
+                absence.textContent = "Present";
+            };
+
+            setInterval(() => {
+                let date = new Date();
+                if (date.getSeconds() === 0) {
+                    time.innerHTML += `
+                                <div>${date.getHours()}:${date.getMinutes()}:0${date.getSeconds()}</div>
+                            `;
+                }
+
+                if (
+                    counter > 5 &&
+                    absence.querySelector("button") &&
+                    is_absent
+                ) {
+                    absence.querySelector("button").remove();
+                    absence.textContent = "Absent";
+                }
+
+                counter += 1;
+            }, 1000);
+
+            /* Ex5 */
+
+            const rec_form = document.querySelector(".rec");
+
+            const rec_inputs = rec_form.querySelectorAll("input");
+
+            rec_form.onsubmit = (e) => {
+                e.preventDefault();
+
+                if (rec_inputs[0].value === "" && rec_inputs[1] === "") {
+                    alert("Fill The Fields correctly first");
+                    rec_inputs.forEach((e) => {
+                        e.value = "";
+                    });
+                } else {
+                    rec_inputs[2].value =
+                        parseFloat(rec_inputs[0].value) *
+                        parseFloat(rec_inputs[1].value);
+                }
+            };
+
+            /* Ex6 */
+            const note_form = document.querySelector(".note");
+            const input = note_form.querySelector("input");
+
+            note_form.onsubmit = (e) => {
+                e.preventDefault();
+                if (parseFloat(input.value) < 0 || parseInt(input.value) > 20) {
+                    alert("Note hors intervalle");
+                    throw new Error("Note hors intervalle");
+                }
+            };
+
+            /*-----------------------------*/
+        </script>
+    </body>
+</html>
