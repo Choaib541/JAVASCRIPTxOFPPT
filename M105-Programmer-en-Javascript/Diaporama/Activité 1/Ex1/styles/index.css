@@ -1,0 +1,59 @@
+:root{
+    --dark : #1f1f1c;
+    --light : #f2f2f2;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a,div,span,img,button{
+    display: block;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--dark);
+    color: var(--light);
+}
+
+.carousel{
+    height: 600px;
+    width: 800px;
+    display: flex;
+}
+
+.carousel button{
+    width: 60px;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.carousel .images{
+    position: relative;
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+
+}
+
+.carousel .images .images-container{
+    display: flex;
+    height: 100%;
+    position: absolute;
+    background-color: red;
+    transition: 0.6s ease-in-out;
+}
+
+.carousel .images .images-container img{
+    max-width: 100%;
+    width: 694px;
+    height: 100%;
+    object-fit: cover;
+}

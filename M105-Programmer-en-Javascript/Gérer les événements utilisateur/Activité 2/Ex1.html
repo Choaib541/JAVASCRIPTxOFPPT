@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+
+    <body>
+        <h1 style="text-align: center;">Formulaire d'inscription</h1>
+        <form name="formInscp" action="" onsubmit="return validation()" method="post">
+            <p>Nom: <input type="text" size="65" name="nom" /></p>
+            <p>Adresse: <input type="text" size="65" name="adresse" /></p>
+            <p>Adresse E-mail : <input type="email" size="65" name="email" /></p>
+            <p>Mot de passe : <input type="password" size="65" name="motPasse" /></p>
+            <p>Telephone: <input type="text" size="65" name="telephone" /></p>
+            <p>Langue :
+            <select type="text" value="" name="langue">
+                <option>Anglais</option>
+                <option>Français</option>
+                <option>Arabe</option>
+            </select>
+            </p>
+            <p>Commentaire: <textarea cols="55" name="commentaire"> </textarea></p>
+            <p><input type="submit" value="Valider" name="Valider" />
+            <input type="reset" value="Annuler" name="Annuler" /></p>
+        </form>
+        <script>
+            const form = document.querySelector("form");
+            const inputs = document.querySelectorAll("input")
+
+            form.onsubmit = () => {
+                let counter = 7;
+
+                entry.forEach((e)=>{
+                    if(e.value === ""){
+                        counter -= 1
+                    }
+                })
+
+                return  counter === 7 
+            }
+        </script>
+    </body>
+</html>

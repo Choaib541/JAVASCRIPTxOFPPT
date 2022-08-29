@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <h1>Histoires</h1>
+        <ul>
+            <li>Nom : <input type="text" id="nom" /></li>
+            <li>Adjectif: <input type="text" id="adj" /></li>
+            <li>Nom d'une personne: <input type="text" id="pers" /></li>
+        </ul>
+
+        <button id="raconter">Raconte une histoire</button>
+        <div id="histoire"></div>
+
+        <script>
+            function raconterHistoire() {
+                var histoireDiv = document.getElementById("histoire");
+                var personne = document.getElementById("pers").value;
+                var adjectif = document.getElementById("adj").value;
+                var nom = document.getElementById("nom").value;
+                histoireDiv.innerHTML =
+                    personne +
+                    " mange " +
+                    adjectif +
+                    " " +
+                    nom +
+                    "... bizarre !";
+            }
+            var btn = document.getElementById("raconter");
+            btn.addEventListener("click", raconterHistoire);
+        </script>
+    </body>
+</html>

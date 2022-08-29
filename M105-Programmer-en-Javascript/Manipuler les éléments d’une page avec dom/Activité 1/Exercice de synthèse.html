@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Document</title>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <style>
+            .selected {
+                background-color: #00ff00;
+                color: #1c1c1f;
+            }
+            .d-none {
+                display: none;
+            }
+            .d-block {
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        <form class="d-none" style="width: 300px">
+            <input placeholder="Code" type="text" />
+            <input placeholder="Nom" type="text" />
+            <input placeholder="Prenom" type="text" />
+            <input placeholder="Semestre" type="text" />
+            <input placeholder="Filiere" type="text" />
+            <div>
+                <button type="submit">Ajouter</button>
+                <button type="button">annuler</button>
+            </div>
+        </form>
+
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Code</th>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th>Semestre</th>
+                    <th>Filiere</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <form>
+            <button type="submit">Ajouter</button>
+            <button type="button">Supprimer</button>
+        </form>
+        <script>
+            const add_form = document.querySelector("form");
+            const trigger_form = document.querySelectorAll("form")[1];
+            const table = document.querySelector("table");
+            const annuler = document.querySelectorAll("button")[1];
+            const suprimer = document.querySelectorAll("button")[3];
+
+            let to_be_deleted = [];
+
+            function create_new_row(Code, Nom, Prenom, Semestre, Filiere) {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+                    <td>${Code}</td>
+                    <td>${Nom}</td>
+                    <td>${Prenom}</td>
+                    <td>${Semestre}</td>
+                    <td>${Filiere}</td>
+                `;
+                tr.onclick = function () {
+                    if (!this.classList.contains("selected")) {
+                        this.classList.add("selected");
+                        to_be_deleted.push(this);
+                    } else {
+                        this.classList.remove("selected");
+                        to_be_deleted.splice(to_be_deleted.indexOf(this), 1);
+                    }
+                };
+
+                table.appendChild(tr);
+            }
+
+            // create_new_row("3", "Choaib", "Mouhrach", "s6", "Math");
+
+            trigger_form.onsubmit = function (event) {
+                event.preventDefault();
+                add_form.classList.remove("d-none");
+            };
+
+            add_form.onsubmit = function (event) {
+                event.preventDefault();
+                Code = this.querySelectorAll("input")[0].value;
+                Nom = this.querySelectorAll("input")[1].value;
+                Prenom = this.querySelectorAll("input")[2].value;
+                Semestre = this.querySelectorAll("input")[3].value;
+                Filiere = this.querySelectorAll("input")[4].value;
+                create_new_row(Code, Nom, Prenom, Semestre, Filiere);
+            };
+
+            suprimer.onclick = () => {
+                to_be_deleted.forEach((e) => {
+                    e.remove();
+                });
+            };
+
+            annuler.onclick = () => {
+                add_form.classList.add("d-none");
+            };
+        </script>
+    </body>
+</html>
