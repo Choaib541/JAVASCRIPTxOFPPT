@@ -1,61 +1,59 @@
-:root{
-    --dark : #1f1f1c;
-    --light : #f2f2f2;
+:root {
+  --dark: #1f1f1c;
+  --light: #f2f2f2;
+
+  /*_______ classess _______*/
+  --buttons-height: 40px;
 }
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-a,div,span,img,button{
-    display: block;
+a,
+div,
+span,
+img,
+button {
+  display: block;
 }
 
-body{
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--dark);
-    color: var(--light);
+button {
+  cursor: pointer;
 }
 
-.carousel{
-    height: 600px;
-    width: 800px;
-    display: flex;
-    flex-direction: column;
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--dark);
+  color: var(--light);
+}
+.carousel {
+  width: 600px;
+  height: 400px;
+}
+.carousel .buttons {
+  color: var(--dark);
+  height: var(--buttons-height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px 4px 0px 0px;
 }
 
-.carousel button{
-    height: 60px;
-    font-weight: bold;
-    font-size: 18px;
-    cursor: pointer;
+.carousel :last-child {
+  border-radius: 0px 0px 4px 4px;
 }
 
-.carousel .images{
-    position: relative;
-    display: flex;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+.carousel .images {
+  height: calc(400px - 80px);
+  overflow: hidden;
 }
-
-.carousel .images .images-container{
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    transition: 0.6s ease-in-out;
-}
-
-.carousel .images .images-container img{
-    max-width: 100%;
-    width: 100%;
-    height: 498px;
-    object-fit: cover;
-    /* display: none; */
+.carousel .images img {
+  height: calc(400px - 80px);
+  width: 100%;
 }
