@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap");
+      * {
+        font-family: "Roboto Mono", monospace;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #f2f2f2;
+        display: grid;
+        place-items: center;
+        height: 100%;
+      }
+      #display {
+        padding: 10px;
+      }
+      #label {
+        font-weight: 600;
+        height: 50%;
+        font-size: 20px;
+        border: none;
+        outline: none;
+        width: 100%;
+      }
+      #label2 {
+        width: 100%;
+        font-weight: 600;
+        height: 50%;
+        font-size: 20px;
+        border: none;
+        outline: none;
+        width: 100%;
+      }
+      .container {
+        padding: 10px;
+        background-color: white;
+        width: fit-content;
+        border: 1px solid black;
+        border-radius: 10px;
+        box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
+          rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+          rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+      }
+      .container table {
+        margin: 0;
+        padding: 0;
+      }
+      .container table tr {
+        margin: 0;
+        padding: 0;
+      }
+      .container table tr td {
+        margin: 0;
+        padding: 0;
+      }
+      .container table tr td button {
+        height: 70px;
+        width: 70px;
+        font-weight: bold;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 20px;
+        display: grid;
+        place-items: center;
+        transition: 0.5s;
+      }
+      .container table tr td button:hover {
+        background-color: #8d8d8d;
+        transition: 0.5s;
+      }
+      #equal {
+        height: 135px;
+        border-radius: 10px;
+      }
+      #c {
+        background-color: royalblue;
+      }
+      #c:hover {
+        transition: 0.5s;
+        background-color: rgb(44, 71, 150);
+      }
+      #divis {
+        background-color: saddlebrown;
+      }
+      #divis:hover {
+        transition: 0.5s;
+        background-color: rgb(88, 44, 13);
+      }
+      #multi {
+        background-color: salmon;
+      }
+      #multi:hover {
+        transition: 0.5s;
+        background-color: rgb(121, 63, 57);
+      }
+      #del {
+        background-color: slateblue;
+      }
+      #del:hover {
+        transition: 0.5s;
+        background-color: rgb(58, 49, 112);
+      }
+      .aa {
+        transition: 0.5s;
+        cursor: pointer;
+      }
+      .bb {
+        transition: 0.5s;
+        cursor: pointer;
+      }
+      .aa:hover {
+        transform: scale(1.5, 1.5);
+        transition: 0.5s;
+      }
+      .bb:hover {
+        transition: 0.5s;
+        transform: scale(1.5, 1.5);
+      }
+    </style>
+    <title>Calculator</title>
+  </head>
+  <body>
+    <div>
+      <div
+        style="
+          margin-bottom: 10px;
+          text-align: center;
+          display: flex;
+          justify-content: center;
+        "
+      >
+        <h1 class="aa" style="width: fit-content; margin: 10px">
+          <a
+            target="_blanc"
+            style="text-decoration: none; color: black"
+            href="https://github.com/Choaib541"
+          >
+            <i class="bi bi-github"></i
+          ></a>
+        </h1>
+        <h1 class="bb" style="width: fit-content; margin: 10px">
+          <a
+            target="_blanc"
+            style="text-decoration: none; color: black"
+            href="https://www.instagram.com/mouhrach00choaib/"
+          >
+            <i class="bi bi-instagram"></i
+          ></a>
+        </h1>
+      </div>
+      <div class="container">
+        <div style="text-align: center">Mouhrach Calculator</div>
+        <div id="display" style="height: 130px">
+          <input id="label" /><br />
+          <label id="label2"></label>
+        </div>
+        <table>
+          <tr>
+            <td><button id="c">C</button></td>
+            <td><button id="divis">/</button></td>
+            <td><button id="multi">x</button></td>
+            <td>
+              <button id="del"><i class="fa fa-backspace"></i></button>
+            </td>
+          </tr>
+          <tr>
+            <td><button id="7">7</button></td>
+            <td><button id="8">8</button></td>
+            <td><button id="9">9</button></td>
+            <td><button id="minus">-</button></td>
+          </tr>
+          <tr>
+            <td><button id="4">4</button></td>
+            <td><button id="5">5</button></td>
+            <td><button id="6">6</button></td>
+            <td><button id="plus">+</button></td>
+          </tr>
+          <tr>
+            <td><button id="1">1</button></td>
+            <td><button id="2">2</button></td>
+            <td><button id="3">3</button></td>
+
+            <td rowspan="2"><button id="equal">=</button></td>
+          </tr>
+          <tr>
+            <td><button id="rest">%</button></td>
+            <td><button id="0">0</button></td>
+            <td><button id="point">.</button></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <script>
+      let display_result = "";
+      function setresult(c) {
+        display_result += c;
+        document.getElementById("label").value = display_result;
+      }
+      document.getElementById("point").onclick = function () {
+        if (display_result.includes(".") !== true && display_result !== "") {
+          setresult(".");
+        }
+      };
+      document.getElementById("0").onclick = function () {
+        if (display_result !== "0") {
+          setresult("0");
+        }
+      };
+      document.getElementById("1").onclick = function () {
+        setresult("1");
+      };
+      document.getElementById("2").onclick = function () {
+        setresult("2");
+      };
+      document.getElementById("3").onclick = function () {
+        setresult("3");
+      };
+      document.getElementById("4").onclick = function () {
+        setresult("4");
+      };
+      document.getElementById("5").onclick = function () {
+        setresult("5");
+      };
+      document.getElementById("6").onclick = function () {
+        setresult("6");
+      };
+      document.getElementById("7").onclick = function () {
+        setresult("7");
+      };
+      document.getElementById("8").onclick = function () {
+        setresult("8");
+      };
+      document.getElementById("9").onclick = function () {
+        setresult("9");
+      };
+
+      document.getElementById("divis").onclick = function () {
+        if (
+          display_result[display_result.length - 1] !== "/" &&
+          display_result !== ""
+        ) {
+          if (
+            display_result[display_result.length - 1] === "*" ||
+            display_result[display_result.length - 1] === "-" ||
+            display_result[display_result.length - 1] === "+"
+          ) {
+            display_result = display_result.slice(0, -1);
+          }
+          setresult("/");
+        }
+      };
+      document.getElementById("multi").onclick = function () {
+        if (
+          display_result[display_result.length - 1] !== "*" &&
+          display_result !== ""
+        ) {
+          if (
+            display_result[display_result.length - 1] === "/" ||
+            display_result[display_result.length - 1] === "-" ||
+            display_result[display_result.length - 1] === "+"
+          ) {
+            display_result = display_result.slice(0, -1);
+            setresult("*");
+            return;
+          }
+          setresult("*");
+        }
+      };
+      document.getElementById("minus").onclick = function () {
+        if (
+          display_result[display_result.length - 1] !== "-" &&
+          display_result !== ""
+        ) {
+          if (
+            display_result[display_result.length - 1] === "/" ||
+            display_result[display_result.length - 1] === "*" ||
+            display_result[display_result.length - 1] === "+"
+          ) {
+            display_result = display_result.slice(0, -1);
+            setresult("-");
+            return;
+          }
+          setresult("-");
+        }
+      };
+      document.getElementById("plus").onclick = function () {
+        if (
+          display_result[display_result.length - 1] !== "+" &&
+          display_result !== ""
+        ) {
+          if (
+            display_result[display_result.length - 1] === "/" ||
+            display_result[display_result.length - 1] === "*" ||
+            display_result[display_result.length - 1] === "-"
+          ) {
+            display_result = display_result.slice(0, -1);
+            setresult("+");
+            return;
+          }
+          setresult("+");
+        }
+      };
+
+      document.getElementById("c").onclick = function () {
+        display_result = "";
+        document.getElementById("label").value = display_result;
+        document.getElementById("label2").innerHTML = display_result;
+      };
+      document.getElementById("del").onclick = function () {
+        display_result = display_result.slice(0, -1);
+        document.getElementById("label").value = display_result;
+      };
+      document.getElementById("equal").onclick = function () {
+        document.getElementById("label2").innerHTML = String(
+          eval(display_result)
+        );
+      };
+    </script>
+  </body>
+</html>

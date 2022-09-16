@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        background: #1f1f1c;
+      }
+      .modal-container {
+        position: absolute;
+        width: 100vw;
+        background: rgba(0, 0, 0, 0.4);
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+      }
+      .modal-content {
+        background-color: #f2f2f2;
+        padding: 10px;
+        max-width: 600px;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="display: none" class="modal-container">
+      <div class="modal-content">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus
+        quibusdam eum excepturi, obcaecati voluptate a architecto quisquam
+        tempore totam nam, nulla debitis sit suscipit voluptates fuga aspernatur
+        magnam ipsum est.
+      </div>
+    </div>
+
+    <button>Show</button>
+
+    <script>
+      const button = document.querySelector("button");
+      const modal_container = document.querySelector(".modal-container");
+      button.onclick = () => {
+        if (modal_container.style.display === "none") {
+          modal_container.style.display = "flex";
+        } else {
+          modal_container.style.display = "none";
+        }
+      };
+      modal_container.onclick = () => {
+        modal_container.style.display = "none";
+      };
+    </script>
+  </body>
+</html>
